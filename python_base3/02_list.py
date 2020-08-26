@@ -144,3 +144,15 @@ print(x)
 x.sort(reverse=False)    # 排序方向
 print(x)
 print(tuple('abc'))
+
+"""
+本章介绍的新函数
+函 数                                描 述
+len(seq)                            返回序列的长度
+list(seq)                           将序列转换为列表
+max(args)                           返回序列或一组参数中的最大值
+min(args)                           返回序列和一组参数中的最小值
+reversed(seq)                       让你能够反向迭代序列
+sorted(seq)                         返回一个有序列表，其中包含指定序列中的所有元素
+tuple(seq)                          将序列转换为元组
+"""

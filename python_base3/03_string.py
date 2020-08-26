@@ -68,3 +68,10 @@ print('this is an incredible test'.translate(table))
 
 # 判断字符串是否满足特定的条件
 # isalnum、isalpha、isdecimal、isdigit、isidentifier、islower、isnumeric、isprintable、isspace、istitle、isupper。
+
+"""
+本章介绍的新函数
+函 数                                描 述
+string.capwords(s[, sep])           使用split根据sep拆分s，将每项的首字母大写，再以空格为分隔符将它们合并起来
+ascii(obj)                          创建指定对象的ASCII表示
+"""
