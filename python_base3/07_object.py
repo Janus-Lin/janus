@@ -6,6 +6,8 @@ janus.python_base3.object
 
 版权所有 © 2020
 """
+from abc import ABC, abstractmethod
+
 # 对象:大致意味着一系列数据（属性）以及一套访问和操作这些数据的方法.
 """
 多态：多态指的是能够同样地对待不同类型和类的对象，即无需知道对象属于哪个类就可调用其方法
@@ -61,7 +63,8 @@ s._Secretive__inaccessible()
 
 # 定义类时情况亦如此：在class语句中定义的代码都是在一个特殊的命名空间（类的命名空间）内执行的，而类的所有成员都可访问这个命名空间。
 # 类定义其实就是要执行的代码段
-def foo(x): return x * x
+def foo(x):
+    return x * x
 
 
 foo = lambda x: x * x
@@ -71,7 +74,6 @@ foo = lambda x: x * x
 以提供新定义的方式重写了Filter类中方法init的定义。
 直接从Filter类继承了方法filter的定义，因此无需重新编写其定义。
 """
-
 
 class Filter:
     def init(self):
@@ -144,18 +146,20 @@ print(tc.name)
 print(tc.__dict__)
 
 # 抽象基类： 使用模块abc可创建抽象基类。抽象基类用于指定子类必须提供哪些功能，却不实现这些功能
-from abc import ABC, abstractmethod
+
 
 class Talker(ABC):
     @abstractmethod  # 标记为抽象的——在子类中必须实现的方法。
     def talk(self):
         pass
 
+
 # Talker(): 实例化会报错。继承+重写，可以调用
 
 class Knigget(Talker):
     def talk(self):
         print("Ni!")
+
 
 k = Knigget()
 print(isinstance(k, Talker))

@@ -1,3 +1,2 @@
 def rect_area(height, width):
-    return height * height  # 这不对
-
+    return height * width  # 这不对

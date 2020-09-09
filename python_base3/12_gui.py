@@ -6,7 +6,7 @@ janus.python_base3.12_gui
 
 版权所有 © 2020
 """
-from tkinter import *
+from tkinter import Tk, Entry, Button, mainloop, LEFT, END, INSERT, BOTTOM, BOTH, X
 from tkinter.scrolledtext import ScrolledText
 
 

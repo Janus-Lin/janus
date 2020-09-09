@@ -6,6 +6,9 @@ janus.python_base3.13_db_api
 
 版权所有 © 2020
 """
+# DB API定义了一些构造函数和常量（单例），用于提供特殊的类型和值.
+import sqlite3
+
 """
 Python DB API： 这个API定义了一个简单的标准化接口，所有数据库包装器模块都必须遵循它，这让编写使用多个不同数据库的程序更容易。
 连接： 连接对象表示到SQL数据库的通信链路，使用方法cursor可从连接获得游标。你还可使用连接对象来提交或回滚事务。使用完数据库后，就可将连接关闭了。
@@ -72,11 +75,9 @@ setoutputsize(size[, col])   为取回大量数据而设置缓冲区长度
 名 称                 描 述
 description          由结果列描述组成的序列（只读）
 rowcount             结果包含的行数（只读）
-arraysize fetchmany  返回的行数，默认为1 
+arraysize fetchmany  返回的行数，默认为1
 """
 # 类型: 对于插入到某些类型的列中的值，底层SQL数据库可能要求它们满足一定的条件。为了能够与底层SQL数据库正确地互操作，
-# DB API定义了一些构造函数和常量（单例），用于提供特殊的类型和值.
-import sqlite3
 
 conn = sqlite3.connect('somedatabase.db')  # 获取连接
 curs = conn.cursor()  # 接获得游标

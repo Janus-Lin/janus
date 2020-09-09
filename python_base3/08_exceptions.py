@@ -26,7 +26,6 @@ ValueError          将内置操作或函数用于这样的对象时引发：其
 ZeroDivisionError   在除法或求模运算的第二个参数为零时引发
 """
 
-
 """
 自定义的异常类:
 要捕获异常，可在try语句中使用except子句。在except子句中，如果没有指
@@ -34,6 +33,7 @@ ZeroDivisionError   在除法或求模运算的第二个参数为零时引发
 向except提供两个参数，第二个参数将关联到异常对象。在同一条try/except语句中，可
 包含多个except子句，以便对不同的异常采取不同的措施。
 """
+
 
 class SomeCustomException(Exception): pass
 
@@ -132,6 +132,7 @@ def describe_person(person):
     if 'occupation' in person:
         print('Occupation:', person['occupation'])
 
+
 # 异常优化
 def describe_person(person):
     print('Description of', person['name'])
@@ -140,6 +141,7 @@ def describe_person(person):
         print('Occupation:', person['occupation'])
     except KeyError:
         pass
+
 
 # 检查对象是否包含特定的属性时，try/except也很有用
 obj = ''
@@ -152,10 +154,12 @@ else:
 
 # 不那么异常的情况： 你只想发出警告，指出情况偏离了正轨，可使用模块warnings中的函数warn.
 from warnings import warn
+
 warn("I've got a bad feeling about this.")
 
 # 可使用模块warnings中的函数filterwarnings来抑制你发出的警告（或特定类型的警告），并指定要采取的措施，如"error"或"ignore"
 from warnings import filterwarnings
+
 # filterwarnings("ignore")
 # warn("Anyone out there?")
 # filterwarnings("error")

@@ -6,21 +6,25 @@ janus.python_base3.11_file
 
 版权所有 © 2020
 """
+# 模块fileinput会负责打开文件，你只需给它提供一个文件名即可
+import fileinput
 
 """
 类似于文件的对象：类似于文件的对象是支持read和readline（可能还有write和writelines）等方法的对象。
 
 打开和关闭文件：要打开文件，可使用函数open，并向它提供一个文件名。如果要确保即便发生错误时文件也将被关闭，可使用with语句。
 
-模式和文件类型：打开文件时，还可指定模式，如'r'（读取模式）或'w'（写入模式）。通过在模式后面加上'b'，可将文件作为二进制文件打开，并关闭Unicode编码和换行符替换。
+模式和文件类型：打开文件时，还可指定模式，如'r'（读取模式）或'w'（写入模式）。通过在模式后面加上'b'，可将文件作为二进制文件打开，
+并关闭Unicode编码和换行符替换。
 
 标准流：三个标准流（模块sys中的stdin、stdout和stderr）都是类似于文件的对象，它们实现了UNIX标准I/O机制（Windows也提供了这种机制）。
 
 读取和写入：要从文件或类似于文件的对象中读取，可使用方法read；要执行写入操作，可使用方法write。
-  
+
 读取和写入行：要从文件中读取行，可使用readline和readlines；要写入行，可使用writelines。
-  
-迭代文件内容：迭代文件内容的方法很多，其中最常见的是迭代文本文件中的行，这可通过简单地对文件本身进行迭代来做到。还有其他与较旧Python版本兼容的方法，如使用readlines
+
+迭代文件内容：迭代文件内容的方法很多，其中最常见的是迭代文本文件中的行，这可通过简单地对文件本身进行迭代来做到。还有其他与较旧Python版本兼容的方法，
+如使用readlines
 """
 
 """
@@ -70,7 +74,7 @@ for i in range(3):
 # readlines()
 print(f.readlines())
 
-# 写入文件后将其关闭，以确保数据得以写入磁盘. 
+# 写入文件后将其关闭，以确保数据得以写入磁盘.
 f.close()
 
 
@@ -90,11 +94,9 @@ with open(filename) as f:
 with open(filename) as f:
     while True:
         line = f.readline()
-        if not line: break
+        if not line:
+            break
         process(line)
-
-# 模块fileinput会负责打开文件，你只需给它提供一个文件名即可
-import fileinput
 
 for line in fileinput.input(filename):
     process(line)

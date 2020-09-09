@@ -8,7 +8,6 @@ janus.python_base3.03_string
 """
 import string
 
-
 # ------------------------模块string中几个很有用的常量------------------------------
 # 包含数字0～9的字符串
 print(string.digits)
@@ -44,15 +43,15 @@ print('-'.join(seq))
 # lower: 返回字符串的小写版本。解决方案是在存储和搜索时
 # islower、istitle、isupper、translate, capitalize、casefold、swapcase、title、upper
 print('Trondheim'.lower())
-print("that's all, folks".title()) # 首字母大写
-print(string.capwords("that's all, folks")) # 更好点
+print("that's all, folks".title())  # 首字母大写
+print(string.capwords("that's all, folks"))  # 更好点
 
 # replace： 将指定子串都替换为另一个字符串，并返回替换后的结果
-print('This is a test'.replace('is', 'eez') )
+print('This is a test'.replace('is', 'eez'))
 
 # split： 一个非常重要的字符串方法，其作用与join相反，用于将字符串拆分为序列。
 # partition、rpartition、rsplit、splitlines
-print( '1+2+3+4+5'.split('+') )
+print('1+2+3+4+5'.split('+'))
 
 # strip： 将字符串开头和末尾的空白（但不包括中间的空白）删除，并返回删除后的结果。
 # 应用场景：用户输入用户名时不小心在末尾加上了一个空格

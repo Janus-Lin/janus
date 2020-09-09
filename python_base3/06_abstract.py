@@ -93,11 +93,11 @@ print(factorial(4))
 
 
 # 幂：原始版本
-def power(x, n):
-    result = 1
-    for i in range(n):
-        result *= x
-    return result
+# def power(x, n):
+#     result = 1
+#     for i in range(n):
+#         result *= x
+#     return result
 
 
 # 幂：递归
@@ -106,6 +106,10 @@ def power(x, n):
         return 1
     else:
         return x * power(x, n - 1)
+
+
+power(1, 2)
+
 
 # 二分查找： 关键在于元素是经过排序的
 # 实际上，模块bisect提供了标准的二分查找实现
@@ -121,7 +125,7 @@ def search(sequence, number, lower, upper):
         return search(sequence, number, lower, middle)
 
 
-print(search([0,1, 2, 3, 4, 5, 6, 7, 8], 6, 0, 7))
+print(search([0, 1, 2, 3, 4, 5, 6, 7, 8], 6, 0, 7))
 
 # 函数式编程
 # map:对序列中的所有元素执行函数
@@ -130,9 +134,12 @@ print(list(map(str, range(10))))
 # 等价于
 print([str(i) for i in range(10)])
 
+
 # filter: 返回一个列表，其中包含对其执行函数时结果为真的所有元素
 def func(x):
     return x.isalnum()
+
+
 seq = ["foo", "x41", "?!", "***"]
 print(list(filter(func, seq)))
 
@@ -146,6 +153,7 @@ print(filter(lambda x: x.isalnum(), seq))
 # 就这个示例而言，还不如使用内置函数sum
 numbers = [72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 33]
 from functools import reduce
+
 print(reduce(lambda x, y: x + y, numbers))
 print(sum(numbers))
 

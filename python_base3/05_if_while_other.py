@@ -8,7 +8,9 @@ janus.python_base3.05_if_while_other
 """
 
 # 别名： 提高代码可维护性（log函数使用）
-from datetime import date as date01
+
+
+from math import sqrt
 
 # 并行赋值（序列解包）： 将一个序列（或任何可迭代对象）解包，并将得到的值存储到一系列变量中。下面用例子进行解释。
 values = 1, 2, 3
@@ -31,7 +33,7 @@ x = 1
 x += 1
 x *= 2
 print(x)
-fnord = '1212'
+fnord: str = '1212'
 fnord += 'bdbasd'
 fnord *= 2
 print(fnord)
@@ -107,7 +109,6 @@ print(''.join(reversed('Hello, world!')))
 
 # 04-跳出循环:
 # break
-from math import sqrt
 
 for n in range(99, 0, -1):
     root = sqrt(n)
@@ -117,9 +118,12 @@ for n in range(99, 0, -1):
 
 #  continue
 for x in [1, 2, 3, 4, 5]:
-    if x == 1: continue
-    if x == 2: continue
-    if x == 3: continue
+    if x == 1:
+        continue
+    if x == 2:
+        continue
+    if x == 3:
+        continue
     print(x)
 
 # while True/break成例
@@ -179,27 +183,21 @@ print(x)
 我们使用的大都是全局命名空间），但并非必然如此。
 """
 # exec: 将字符串作为代码执行(scope: 解决命名空间问题)
-from math import sqrt
 scope = {}
 exec('sqrt = 1', scope)
 sqrt(4)
 scope['sqrt']
-
 
 # eval是一个类似于exec的内置函数。exec执行一系列Python语句，而eval计算用字符串表示的Python表达式的值，并返回结果
 # （exec什么都不返回，因为它本身是条语句）
 print(eval('1 * 2'))
 
 # 向exec或eval提供命名空间时，可在使用这个命名空间前在其中添加一些值。
-scope = {}
-scope['x'] = 2
-scope['y'] = 3
+scope = {'x': 2, 'y': 3}
 print(eval('x * y', scope))
 
 # 同样，同一个命名空间可用于多次调用exec或eval。
-scope = {}
-scope['x'] = 2
-scope['y'] = 3
+scope = {'x': 2, 'y': 3}
 eval('x * y', scope)
 
 """

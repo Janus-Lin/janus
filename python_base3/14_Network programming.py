@@ -6,6 +6,9 @@ janus.python_base3.Network programming
 
 版权所有 © 2020
 """
+# 模块 urllib 和 urllib2
+from urllib.request import urlopen, urlretrieve
+
 """
 套接字和模块socket： 套接字是让程序（进程）能够通信的信息通道，这种通信可能需要通过网络进行。
 模块socket让你能够在较低的层面访问客户端套接字和服务器套接字。服务器套接字在指定的地址处监听客户端连接，而客户端套接字直接连接到服务器。
@@ -39,7 +42,7 @@ reactor.listenTCP(port, factory)              监听连接的Twisted函数
 reactor.run()                                 启动主服务器循环的Twisted函数
 """
 # 最简单的服务器
-import socket
+# import socket
 
 # s = socket.socket()
 # host = socket.gethostname()
@@ -61,9 +64,6 @@ import socket
 # s.connect((host, port))
 # print(s.recv(1024))
 
-
-# 模块 urllib 和 urllib2
-from urllib.request import urlopen, urlretrieve
 
 # 打开远程文件
 webpage = urlopen('http://www.baidu.com')

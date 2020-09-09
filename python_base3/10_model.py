@@ -6,12 +6,18 @@ janus.python_base3.10_medel
 
 版权所有 © 2020
 """
-
+import sys, pprint
+from collections import deque
+from random import *
+from time import *
+from heapq import *
+from random import shuffle
+import copy
 """
 模块： 模块基本上是一个子程序，主要作用是定义函数、类和变量等。模块包含测试代码时，
 应将这些代码放在一条检查name == '__main__'的if语句中。如果模块位于环境变量PYTHONPATH包含的目录中，
 就可直接导入它；要导入存储在文件foo.py中的模块，可使用语句import foo。要让代码是可重用的，务必将其模块化.
-  
+
 包： 包不过是包含其他模块的模块。包是使用包含文件__init__.py的目录实现的。
 
 探索模块： 在交互式解释器中导入模块后，就可以众多不同的方式对其进行探索，其中包括使用dir、查看变量__all__以及使用函数help。
@@ -42,7 +48,6 @@ print(math.sin(0))
 
 # 设置模块路径
 import sys
-
 sys.path.append('/home/lin/PycharmProjects/engineer/janus/python_base3/tools.py')
 import tools
 
@@ -53,8 +58,6 @@ tools.qq()
 import importlib
 
 hello = importlib.reload(tools)
-
-import sys, pprint
 
 # 要打印的数据结构太大，一行容纳不下，可使用模块pprint中的函数pprint（
 pprint.pprint(sys.path)
@@ -79,7 +82,6 @@ from drawing import shapes # (3) 导入模块shapes
 
 # 模块包含什么
 # 函数dir: 列出对象的所有属性（对于模块，它列出所有的函数、类、变量等）。
-import copy
 
 print(dir(copy))
 print([n for n in dir(copy) if not n.startswith('_')])
@@ -188,8 +190,6 @@ heapreplace(heap, x) 弹出最小的元素，并将x压入堆中
 nlargest(n, iter)    返回iter中n个最大的元素
 nsmallest(n, iter)   返回iter中n个最小的元素
 """
-from heapq import *
-from random import shuffle
 
 data = list(range(10))
 shuffle(data)
@@ -208,7 +208,7 @@ print(heap)
 象还包含方法extend和extendleft，其中extend类似于相应的列表方法，而extendleft类似于
 appendleft。请注意，用于extendleft的可迭代对象中的元素将按相反的顺序出现在双端队列中。
 """
-from collections import deque
+
 q = deque(range(5))
 q.append(5)
 q.appendleft(6)
@@ -227,8 +227,8 @@ sleep(secs)                休眠（什么都不做）secs秒
 strptime(string[, format]) 将字符串转换为时间元组
 time()                     当前时间（从新纪元开始后的秒数以UTC为准）
 """
-import time
-print( time.asctime())
+
+print(time.asctime())
 
 # datetime
 # timeit
@@ -245,8 +245,7 @@ choice(seq)        从序列seq中随机地选择一个元素
 shuffle(seq[, random]) 就地打乱序列seq
 sample(seq, n)     从序列seq中随机地选择n个值不同的元素
 """
-from random import *
-from time import *
+
 date1 = (2016, 1, 1, 0, 0, 0, -1, -1, -1)
 time1 = mktime(date1)
 date2 = (2017, 1, 1, 0, 0, 0, -1, -1, -1)

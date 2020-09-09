@@ -2,7 +2,7 @@
 janus.python_base3.16_base_ceshi
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-功能: 测试基础
+功能: 测试基础, 测试用例, 代码检测, 性能分析
 
 版权所有 © 2020
 """
@@ -53,3 +53,13 @@ else:
 # 模块unittest区分错误和失败。错误指的是引发了异常，而失败是调用failUnless等方法的结果.
 # 开头的两个句点表示测试。如果你仔细观察失败时乱七八糟的输出，将发现开头也有两个字符：两个F，表示两次失败.
 # 有关更复杂的面向对象代码测试，请参阅模块unittest.mock。
+
+
+# 源代码检查(PyChecker): 感觉可以用pycharm重新格式优化和makefile文件代替.
+# 标准库还包含一个名为timeit的模块，提供了一种对小段Python代码的运行时间进行测试的简单方式.
+# 性能分析： profile, 可以用pycharm的性能调试代替模块检测.
+import cProfile
+from python_base3.data.my_math import product
+cProfile.run('product(1, 2)', 'my_math.profile')
+import pstats
+p = pstats.Stats('my_math.profile')

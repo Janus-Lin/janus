@@ -31,6 +31,7 @@ janus.python_base3.09_magic_method
 
 """
 
+
 # 构造函数:  __init__, 初始化方法
 
 class FooBar:
@@ -143,16 +144,16 @@ print(r.width)
 # classmethod: 定义中包含类似于self的参数，通常被命名为cls.对于类方法，也可通过对象直接调用，但参数cls将自动关联到类.
 
 # 手动包装
-class MyClass:
-    def smeth():
-        print('This is a static method')
-
-    smeth = staticmethod(smeth)
-
-    def cmeth(cls):
-        print('This is a class method of', cls)
-
-    cmeth = classmethod(cmeth)
+# class MyClass:
+#     def smeth():
+#         print('This is a static method')
+#
+#     smeth = staticmethod(smeth)
+#
+#     def cmeth(cls):
+#         print('This is a class method of', cls)
+#
+#     cmeth = classmethod(cmeth)
 
 
 # 装饰器包装
@@ -236,7 +237,8 @@ class TestIterator:
 
     def __next__(self):
         self.value += 1
-        if self.value > 10: raise StopIteration
+        if self.value > 10:
+            raise StopIteration
         return self.value
 
     def __iter__(self):
@@ -251,8 +253,8 @@ print(list(ti))
 nested = [[1, 2], [3, 4], [5]]
 
 
-def flatten(nested):
-    for sublist in nested:
+def flatten(parm):
+    for sublist in parm:
         for element in sublist:
             print(f'开始调用生成器！')
             yield element
@@ -270,13 +272,13 @@ print(sum(i ** 2 for i in range(10)))
 
 
 # 递归式生成器: 意层嵌套的列表
-def flatten(nested):
+def flatten(param):
     try:
-        for sublist in nested:
+        for sublist in param:
             for element in flatten(sublist):
                 yield element
     except TypeError:
-        yield nested
+        yield param
 
 
 print(list(flatten([[[1], 2], 3, 4, [5, [6, 7]], 8])))
@@ -284,20 +286,20 @@ print(list(flatten([[[1], 2], 3, 4, [5, [6, 7]], 8])))
 
 # 迭代字符串对象
 # 请注意，这里没有执行类型检查：我没有检查nested是否是字符串，而只是检查其行为是否类似于字符串，即能否与字符串拼接。
-def flatten(nested):
+def flatten(param):
     try:
         # 不迭代类似于字符串的对象：
         try:
-            nested + ''
+            param + ''
         except TypeError:
             pass
         else:
             raise TypeError
-        for sublist in nested:
+        for sublist in param:
             for element in flatten(sublist):
                 yield element
     except TypeError:
-        yield nested
+        yield param
 
 
 print(list(flatten(['foo', ['bar', ['baz']]])))
@@ -318,7 +320,8 @@ print(list(flatten(['foo', ['bar', ['baz']]])))
 def repeater(value):
     while True:
         new = (yield value)
-        if new is not None: value = new
+        if new is not None:
+            value = new
 
 
 r = repeater(42)
@@ -334,22 +337,23 @@ print(r.send("Hello, world!"))
 
 # 模拟生成器： 普通函数模拟生成器
 # 下面使用普通函数重写了生成器flatten：
-def flatten(nested):
+def flatten(param):
     result = []
     try:
         # 不迭代类似于字符串的对象：
         try:
-            nested + ''
+            param + ''
         except TypeError:
             pass
         else:
             raise TypeError
-        for sublist in nested:
+        for sublist in param:
             for element in flatten(sublist):
                 result.append(element)
     except TypeError:
-        result.append(nested)
+        result.append(param)
     return result
+
 
 # 八皇后问题:
 
