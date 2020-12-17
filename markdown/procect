@@ -1,0 +1,10 @@
+1.配置虚拟环境
+2.安装三方包requirements
+## 项目数据库迁移(非必须操作)
+* 生成指定的变动文件： python manage.py makemigrations 
+* 数据库表更新： python manage.py migrate 
+
+# 新项目开展
+* 确定相关对接责任人, 了解项目需求（输入, 输出, 处理逻辑） 
+* 确认工期（是否包含测试）
+* 开发中及时沟通, 加大测试力度
